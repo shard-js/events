@@ -18,6 +18,7 @@ jobs:
     script:
       - npm run build
       - npm test
+      - npm run lint
   - stage: npm
     language: node_js
     node_js:
