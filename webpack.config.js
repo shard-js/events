@@ -14,8 +14,8 @@ function createConfig (target) {
     target,
     output: {
       path: dist(),
-      filename: `js-lib-template.${target}.js`,
-      library: 'js-lib-template',
+      filename: `events.${target}.js`,
+      library: 'events',
       libraryTarget: 'umd'
     },
     module: {
