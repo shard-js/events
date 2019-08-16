@@ -1,6 +1,6 @@
 {
   "name": "@shards/events",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "an event emitter library for javascript",
   "main": "dist/events.web.js",
   "scripts": {
