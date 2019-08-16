@@ -29,3 +29,13 @@ test('delivers payload to listener', () => {
   expect(listener).toHaveBeenCalledTimes(1)
   expect(listener.mock.calls[0][0]).toEqual('payload')
 })
+
+test('delivers multiple payloads to listener', () => {
+  const events = Events()
+  const listener = jest.fn()
+  events.addListener('event-name', listener)
+  events.emit('event-name', 'a', 'b')
+  expect(listener).toHaveBeenCalledTimes(1)
+  expect(listener.mock.calls[0][0]).toEqual('a')
+  expect(listener.mock.calls[0][1]).toEqual('b')
+})

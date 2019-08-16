@@ -10,11 +10,11 @@ function createEventEmitter () {
     }
   }
 
-  self.emit = function emit (name, payload) {
+  self.emit = function emit (name, ...payload) {
     if (Array.isArray(listeners[name])) {
       Array.prototype.forEach.call(listeners[name], (l) => {
         try {
-          l(payload)
+          l(...payload)
         } catch (e) {
           if (typeof self.onError === 'function') {
             try {
