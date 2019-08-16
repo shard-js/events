@@ -1,6 +1,6 @@
-# Maybe
+# Events
 
-`Maybe` is a simple module to help make your javascript more declarative.
+`Events` is a simple library to create an event emitter
 
 ## installation
 
@@ -8,55 +8,41 @@
 for npm:
 
 ```
-npm i @shards/maybe
+npm i @shards/events
 ```
 
 for yarn:
 
 ```
-yarn add @shards/maybe
+yarn add @shards/events
 ```
 
 to require:
 
 ```
-const Maybe = require('@shards/maybe').default
+const Maybe = require('@shards/events').default
 ```
 
 to import (es6 modules):
 
 ```
-import Maybe from '@shards/maybe'
+import Maybe from '@shards/events'
 ```
 
 for node:
 
 ```
-import Maybe from '@shards/maybe/dist/maybe.node.js'
+import Maybe from '@shards/events/dist/events.node.js'
 ```
 
 ## usage
 
-By using a `Maybe` value, it forces us to handle both the cases where a value does exist, and where it doesn't. This is helpful for dealing with API's that return null/undefined values if they fail.
+```
+const events = Events()
 
+events.addListener('success', (msg) => {
+  console.log(msg)
+})
 
-```javascript
-const list = [
-  1,
-  2,
-  3,
-]
-
-const value = list.find(v => v === 4)
-
-Maybe(value).match(
-  // just callback
-  (v) => {
-    console.log(`we found a value: ${v}`)
-  },
-  // nothing callback
-  () => {
-    console.log('unable to find value :(')
-  },
-)
+events.emit('success', 'my payload') // "my payload"
 ```
